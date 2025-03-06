@@ -8,9 +8,9 @@ const Gallery = ({images}) => {
     return (
         <div className="gallery">
 
-            {images?.map((image, index) => (
-                <div key={index} className="gallery-item">
-                    <img src={image} alt={`Gallery ${index + 1}`} />
+            {images?.map((image) => (
+                <div key={image.id} className="gallery-item">
+                    <img src={image.urls.small} alt={image.alternative_slugs.en} />
                 </div>
             ))}
 
