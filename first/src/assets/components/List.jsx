@@ -2,9 +2,9 @@ const List = ({ user, onclick }) => {
   return (
     <ul>
       {user.map((item) => (
-        <li key={item.email}>
+        <li key={item.id}>
           {item.name} - {item.email}
-          <button onClick={() => onclick(item.name)}>Delete</button>
+          <button onClick={() => onclick(item.id)}>Delete</button>
         </li>
       ))}
     </ul>

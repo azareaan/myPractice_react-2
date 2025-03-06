@@ -1,17 +1,19 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import './App.css'
 import Form from './assets/components/Form'
 import List from './assets/components/List'
 
 function App() {
-  const [user, setUser] = useState([
-    {name: "Leanne Graham", email: "Sincere@april.biz"},
-    {name: "Ervin Howell", email: "Shanna@melissa.tv"},
-    {name: "Clementine Bauch", email: "Nathan@yesenia.net"}
-  ])
+  const [user, setUser] = useState([])
 
-  const deleteUser = (name) => {
-    setUser(() => user.filter((item) => item.name !== name))
+  useEffect (() => {
+    fetch('https://jsonplaceholder.typicode.com/users')
+      .then(response => response.json())
+      .then(json => setUser(json))
+  },[])
+
+  const deleteUser = (id) => {
+    setUser(() => user.filter((item) => item.id !== id))
   }
 
   // const addUser = (name, email) => {}
